@@ -54,6 +54,7 @@ module.exports = function(grunt) {
         } catch (e) {
           var error = grunt.log.wordlist(['[react] ' + e], { color: 'red' });
           grunt.log.error(error);
+          grunt.event.emit('react.error', file, e);
           nextFileObj(error);
         }
       }, function () {
